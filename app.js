@@ -1,10 +1,12 @@
 const express = require('express')
 const app = express()
 const parser = require('body-parser')
+const cors = require('cors')
 
 //General Middleware
 app.use(parser.json())
 app.use(parser.urlencoded({ extended: false}))
+app.use(cors())
 
 let port = process.env.PORT || 3000
 

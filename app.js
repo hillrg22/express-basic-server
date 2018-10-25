@@ -6,7 +6,7 @@ const parser = require('body-parser')
 app.use(parser.json())
 app.use(parser.urlencoded({ extended: false}))
 
-let port = 3000
+let port = process.env.PORT || 3000
 
 //Data
 const characters = require('./data.json')

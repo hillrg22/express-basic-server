@@ -93,7 +93,11 @@ function errorHandler(err, req, res, next) {
 
   const stack =  process.env.NODE_ENV !== 'production' ? err.stack : undefined
 
-  res.status(500).send({error: err.message, stack, url: req.originalUrl})
+  res.status(500).send({
+    error: err.message,
+    stack,
+    url: req.originalUrl
+  })
 }
 
 // app.listen(port)
@@ -101,4 +105,4 @@ function errorHandler(err, req, res, next) {
 //   .on('listening', console.log.bind(console, 'Listening on http://0.0.0.0:' + port))
 
 
-app.listen(3000, ()=> console.log(`Server running on port ${port}`))
+app.listen(port, ()=> console.log(`Server running on port ${port}`))

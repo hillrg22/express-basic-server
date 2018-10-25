@@ -90,7 +90,9 @@ function notFound(req, res, next) {
 // eslint-disable-next-line
 function errorHandler(err, req, res, next) {
   console.error('ERROR', err)
+
   const stack =  process.env.NODE_ENV !== 'production' ? err.stack : undefined
+
   res.status(500).send({error: err.message, stack, url: req.originalUrl})
 }
 
